@@ -81,6 +81,13 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'testabout',
+      description: 'About us section',
+      title: 'About test',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'showcaseProjects',
       title: 'Showcase projects',
       description:

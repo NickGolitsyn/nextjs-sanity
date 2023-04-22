@@ -16,7 +16,9 @@ export interface HomePageProps {
 }
 
 export function HomePage({ page, settings, preview }: HomePageProps) {
-  const { overview, showcaseProjects, title = 'Personal website' } = page ?? {}
+  const { overview, showcaseProjects, title, aboutUs, testabout = 'Personal website' } = page ?? {}
+  console.log(title);
+  
 
   return (
     <>
@@ -26,6 +28,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         <div className="space-y-20">
           {/* Header */}
           {title && <Header centered title={title} description={overview} />}
+          {testabout && <h1>{testabout}</h1>}
           {/* Showcase projects */}
           {showcaseProjects && showcaseProjects.length > 0 && (
             <div className="mx-auto max-w-[100rem] rounded-md border">

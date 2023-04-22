@@ -9,7 +9,7 @@ interface NavbarProps {
 export function Navbar({ menuItems }: NavbarProps) {
   return (
     <div className="sticky top-0 z-10 flex flex-wrap items-center gap-x-5 bg-white/80 py-4 px-4 backdrop-blur md:py-5 md:px-16 lg:px-32">
-      {menuItems &&
+      {/* {menuItems &&
         menuItems.map((menuItem, key) => {
           const href = resolveHref(menuItem?._type, menuItem?.slug)
           if (!href) {
@@ -28,7 +28,31 @@ export function Navbar({ menuItems }: NavbarProps) {
               {menuItem.title}
             </Link>
           )
-        })}
+        })} */}
+        <Link
+          className={`text-lg hover:text-black md:text-xl`}
+          href={'/'}
+        >
+          Home
+        </Link>
+        <Link
+          className={`text-lg text-gray-600 hover:text-black md:text-xl`}
+          href={'/#aboutus'}
+        >
+          About Us
+        </Link>
+        <Link
+          className={`text-lg text-gray-600 hover:text-black md:text-xl`}
+          href={'/services'}
+        >
+          Services
+        </Link>
+        <Link
+          className={`text-lg text-gray-600 hover:text-black md:text-xl`}
+          href={'/#contact'}
+        >
+          Contact
+        </Link>
     </div>
   )
 }
