@@ -17,6 +17,8 @@ import milestone from 'schemas/objects/milestone'
 import timeline from 'schemas/objects/timeline'
 import home from 'schemas/singletons/home'
 import settings from 'schemas/singletons/settings'
+import gallery from 'schemas/singletons/gallery'
+import services from 'schemas/singletons/services'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -39,6 +41,8 @@ export default defineConfig({
       // Singletons
       home,
       settings,
+      services,
+      gallery,
       // Documents
       duration,
       page,
@@ -50,12 +54,12 @@ export default defineConfig({
   },
   plugins: [
     deskTool({
-      structure: pageStructure([home, settings]),
+      structure: pageStructure([home, settings, services, gallery]),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       defaultDocumentNode: previewDocumentNode({ apiVersion, previewSecretId }),
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin([home.name, settings.name]),
+    singletonPlugin([home.name, settings.name, services.name, gallery.name]),
     // Add the "Open preview" action
     productionUrl({
       apiVersion,

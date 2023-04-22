@@ -59,6 +59,28 @@ export default defineType({
       validation: (rule) => rule.max(155).required(),
     }),
     defineField({
+      name: 'slideshow',
+      type: 'array',
+      title: 'Slideshow',
+      of: [{type: 'image', options: {
+        hotspot: true // <-- Defaults to false
+      },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative Text',
+        }
+      ]}]
+    }),
+    defineField({
+      name: 'aboutUs',
+      description: 'About us section',
+      title: 'About Us',
+      type: 'text',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'showcaseProjects',
       title: 'Showcase projects',
       description:
